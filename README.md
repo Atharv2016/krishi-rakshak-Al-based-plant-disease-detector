@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Krishi Rakshak — AI-Based Plant Disease Detector
 
 A bilingual (English/Marathi) web application for AI-assisted screening of tomato, potato and grape leaf images. Stack: HTML/CSS/JavaScript, Python/Flask, TensorFlow/Keras MobileNetV2 and optional Firebase Firestore.
@@ -194,3 +195,7 @@ The tests verify API health response shape and invalid upload handling. Add real
 - **No class folders found:** set `KRISHI_DATA_DIR` to the folder that directly contains class directories.
 - **Browser says server unavailable:** run `python backend/app.py`, then open the app through `http://127.0.0.1:5000`.
 - **Poor results on field photos:** the model may have learned dataset-specific backgrounds. Collect diverse, correctly labeled local images and evaluate on a separate real-world test set.
+=======
+# krishi-rakshak-Al-based-plant-disease-detector
+This project will detect the disease.
+>>>>>>> 1aac5e6220474fcbebf90c07d6a1e30e7ba94577
