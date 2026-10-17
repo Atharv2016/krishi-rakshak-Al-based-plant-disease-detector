@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1c6b3c">
+  <meta name="description" content="Krishi Rakshak — bilingual AI plant disease screening for tomato, potato and grape leaves.">
+  <title>Krishi Rakshak | AI Plant Health</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home" aria-label="Krishi Rakshak home"><span class="brand-icon">🌿</span><span><strong>Krishi Rakshak</strong><small data-i18n="tagline">AI Plant Health Assistant</small></span></a>
+  <div class="header-actions"><label class="language-label" for="languageSelect" data-i18n="language">Language</label><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="mr">मराठी</option></select></div>
+</header>
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy"><p class="eyebrow" data-i18n="eyebrow">SMART FARMING • HEALTHIER CROPS</p><h1 data-i18n="heroTitle">A healthier crop starts with a leaf.</h1><p class="hero-subtitle" data-i18n="heroSubtitle">Upload a clear leaf photo to screen for common tomato, potato and grape diseases.</p><a class="primary-link" href="#detector" data-i18n="startScan">Scan a leaf <span aria-hidden="true">↗</span></a></div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="leaf leaf-three"></div><div class="leaf-stem"></div><div class="art-label">🌱 <span data-i18n="growTogether">Grow with confidence</span></div></div>
+  </section>
+  <section class="feature-strip" aria-label="Features"><div><span>📷</span><strong data-i18n="feature1">Leaf image scan</strong></div><div><span>🧠</span><strong data-i18n="feature2">AI-powered screening</strong></div><div><span>🌐</span><strong data-i18n="feature3">English + Marathi</strong></div></section>
+  <section class="detector-section" id="detector">
+    <div class="section-heading"><p class="eyebrow" data-i18n="detectorEyebrow">PLANT HEALTH CHECK</p><h2 data-i18n="detectorTitle">Check your plant</h2><p data-i18n="detectorSubtitle">Choose a clear, well-lit image showing the leaf symptoms.</p></div>
+    <div class="detector-grid">
+      <form id="uploadForm" class="upload-card">
+        <label class="upload-zone" id="dropZone" for="leafImage"><span class="upload-icon">↑</span><strong data-i18n="uploadTitle">Upload a leaf photo</strong><span data-i18n="uploadHint">JPG, PNG or WEBP · up to 8 MB</span><span class="browse-button" data-i18n="browse">Choose image</span><input id="leafImage" name="image" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" required></label>
+        <div class="preview-wrap" id="previewWrap" hidden><img id="previewImage" alt="Selected leaf preview"><button type="button" id="removeImage" class="text-button" data-i18n="removeImage">Remove image</button></div>
+        <label class="consent-row"><input type="checkbox" id="confirmLeaf" required><span data-i18n="confirmLeaf">I have selected a plant leaf image, not a person or unrelated object.</span></label>
+        <button class="primary-button" id="analyzeButton" type="submit" disabled><span data-i18n="analyze">Analyze leaf</span><span aria-hidden="true">→</span></button>
+        <p class="small-note" data-i18n="privacyNote">Your photo is sent to the prediction server for analysis. Do not upload private or sensitive images.</p>
+      </form>
+      <aside class="tips-card"><div class="tips-icon">☀️</div><h3 data-i18n="photoTipsTitle">Tips for a better scan</h3><ul><li data-i18n="tip1">Use natural light and keep the leaf in focus.</li><li data-i18n="tip2">Include the affected area and some of the leaf edges.</li><li data-i18n="tip3">Avoid strong shadows and blurry photos.</li><li data-i18n="tip4">For better results, photograph one leaf at a time.</li></ul><div class="crop-pills"><span>🍅 Tomato</span><span>🥔 Potato</span><span>🍇 Grape</span></div></aside>
+    </div>
+    <div id="statusMessage" class="status-message" role="status" aria-live="polite" hidden></div>
+    <section id="resultCard" class="result-card" hidden aria-live="polite"><div class="result-top"><span class="result-symbol">🔎</span><div><p class="eyebrow" data-i18n="resultEyebrow">SCREENING RESULT</p><h2 id="resultTitle">—</h2></div><span class="confidence-pill" id="confidence">—</span></div><p class="result-label" data-i18n="symptomsLabel">Symptoms to check</p><p id="resultSymptoms"></p><p class="result-label" data-i18n="adviceLabel">General next steps</p><p id="resultAdvice"></p><p class="disclaimer" id="resultDisclaimer"></p><button id="newScanButton" class="secondary-button" data-i18n="newScan">Scan another leaf</button></section>
+  </section>
+  <section class="history-section"><div class="section-heading compact"><p class="eyebrow" data-i18n="historyEyebrow">YOUR RECENT SCANS</p><h2 data-i18n="historyTitle">Scan history</h2><p data-i18n="historySubtitle">Recent results are saved in this browser. Firebase can be enabled for cloud history.</p></div><div id="historyList" class="history-list"><p class="empty-history" data-i18n="emptyHistory">Your scans will appear here.</p></div><button id="clearHistory" class="text-button" data-i18n="clearHistory">Clear local history</button></section>
+</main>
+<footer><div class="footer-brand">🌿 <strong>Krishi Rakshak</strong></div><p data-i18n="footerText">Built to support farmers with accessible AI screening.</p><p class="footer-warning" data-i18n="footerWarning">This tool is not a confirmed diagnosis. Consult an agricultural expert before treatment.</p></footer>
+</body>
+</html>

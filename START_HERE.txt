@@ -1,0 +1,17 @@
+KRISHI RAKSHAK — START HERE
+
+1. Install Python 3.11 if available for your operating system.
+2. Open PowerShell in this folder.
+3. Create environment:
+   py -3.11 -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   python -m pip install --upgrade pip
+   pip install -r backend\requirements.txt
+4. Download PlantVillage and put the crop class folders inside dataset\PlantVillage\.
+5. Train:
+   python model\train_model.py
+6. Run website:
+   python backend\app.py
+7. Open http://127.0.0.1:5000
+
+The trained model weights are not included. Follow README.md for full setup, Firebase and deployment instructions.
